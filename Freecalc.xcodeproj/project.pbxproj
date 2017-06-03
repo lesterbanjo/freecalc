@@ -74,6 +74,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		274F53A01EE2D8E0001FBF8F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		277C117D1EE2D4D300921EA8 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +104,7 @@
 		277C11881EE2D4D300921EA8 /* Freecalc */ = {
 			isa = PBXGroup;
 			children = (
+				274F53A01EE2D8E0001FBF8F /* Models */,
 				277C11891EE2D4D300921EA8 /* AppDelegate.swift */,
 				277C118B1EE2D4D300921EA8 /* ViewController.swift */,
 				277C118D1EE2D4D300921EA8 /* Main.storyboard */,
