@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		274F53A31EE3101C001FBF8F /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 274F53A21EE3101C001FBF8F /* digital-7 (mono).ttf */; };
+		274F53A41EE3101C001FBF8F /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 274F53A21EE3101C001FBF8F /* digital-7 (mono).ttf */; };
+		274F53A51EE3101C001FBF8F /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 274F53A21EE3101C001FBF8F /* digital-7 (mono).ttf */; };
 		277C118A1EE2D4D300921EA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277C11891EE2D4D300921EA8 /* AppDelegate.swift */; };
 		277C118C1EE2D4D300921EA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277C118B1EE2D4D300921EA8 /* ViewController.swift */; };
 		277C118F1EE2D4D300921EA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277C118D1EE2D4D300921EA8 /* Main.storyboard */; };
@@ -34,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		274F53A21EE3101C001FBF8F /* digital-7 (mono).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7 (mono).ttf"; sourceTree = "<group>"; };
 		277C11861EE2D4D300921EA8 /* Freecalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freecalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		277C11891EE2D4D300921EA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		277C118B1EE2D4D300921EA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +85,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		274F53A11EE30FBA001FBF8F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				274F53A21EE3101C001FBF8F /* digital-7 (mono).ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		277C117D1EE2D4D300921EA8 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +116,7 @@
 		277C11881EE2D4D300921EA8 /* Freecalc */ = {
 			isa = PBXGroup;
 			children = (
+				274F53A11EE30FBA001FBF8F /* Resources */,
 				274F53A01EE2D8E0001FBF8F /* Models */,
 				277C11891EE2D4D300921EA8 /* AppDelegate.swift */,
 				277C118B1EE2D4D300921EA8 /* ViewController.swift */,
@@ -243,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				274F53A31EE3101C001FBF8F /* digital-7 (mono).ttf in Resources */,
 				277C11941EE2D4D300921EA8 /* LaunchScreen.storyboard in Resources */,
 				277C11911EE2D4D300921EA8 /* Assets.xcassets in Resources */,
 				277C118F1EE2D4D300921EA8 /* Main.storyboard in Resources */,
@@ -253,6 +267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				274F53A41EE3101C001FBF8F /* digital-7 (mono).ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				274F53A51EE3101C001FBF8F /* digital-7 (mono).ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
