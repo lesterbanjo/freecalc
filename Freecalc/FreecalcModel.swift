@@ -41,34 +41,56 @@ class FreecalcModel {
         self.latestOperation = CalculatorOperations.add
     }
     
-    
     func setOperation(operation: CalculatorOperations){
+        switch operation{
+            case .clear:
+                latestOperation = .add
+                currentCalculatorText = "0"
+            
+        case .result:
+            latestOperation = operation
+            
+        default:
+            latestOperation = operation
+            
+        }
+        
         self.latestOperation = operation
     }
     
     func addChar(char: CalculatorCharacter){
         switch char{
-            case CalculatorCharacter.zero:
+            case .zero:
                 currentCalculatorText = "0"
-            case CalculatorCharacter.one:
+            
+            case .one:
                 currentCalculatorText += "1"
-            case CalculatorCharacter.two:
+            
+            case .two:
                 currentCalculatorText += "2"
-            case CalculatorCharacter.three:
+            
+            case .three:
                 currentCalculatorText += "3"
-            case CalculatorCharacter.four:
+            
+            case .four:
                 currentCalculatorText += "4"
-            case CalculatorCharacter.five:
+            
+            case .five:
                 currentCalculatorText += "5"
-            case CalculatorCharacter.six:
+            
+            case .six:
                 currentCalculatorText += "6"
-            case CalculatorCharacter.seven:
+            
+            case .seven:
                 currentCalculatorText += "7"
-            case CalculatorCharacter.eight:
+            
+            case .eight:
                 currentCalculatorText += "8"
-            case CalculatorCharacter.nine:
+            
+            case .nine:
                 currentCalculatorText += "9"
-            case CalculatorCharacter.comma:
+            
+            case .comma:
                 currentCalculatorText += "."
         }
     }

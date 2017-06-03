@@ -103,6 +103,23 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		274F53AE1EE33547001FBF8F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				277C118B1EE2D4D300921EA8 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		274F53AF1EE33560001FBF8F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				277C11921EE2D4D300921EA8 /* LaunchScreen.storyboard */,
+				277C118D1EE2D4D300921EA8 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 		277C117D1EE2D4D300921EA8 = {
 			isa = PBXGroup;
 			children = (
@@ -126,13 +143,12 @@
 		277C11881EE2D4D300921EA8 /* Freecalc */ = {
 			isa = PBXGroup;
 			children = (
+				274F53AF1EE33560001FBF8F /* Storyboards */,
+				274F53AE1EE33547001FBF8F /* Controllers */,
 				274F53A11EE30FBA001FBF8F /* Resources */,
 				274F53A01EE2D8E0001FBF8F /* Models */,
 				277C11891EE2D4D300921EA8 /* AppDelegate.swift */,
-				277C118B1EE2D4D300921EA8 /* ViewController.swift */,
-				277C118D1EE2D4D300921EA8 /* Main.storyboard */,
 				277C11901EE2D4D300921EA8 /* Assets.xcassets */,
-				277C11921EE2D4D300921EA8 /* LaunchScreen.storyboard */,
 				277C11951EE2D4D300921EA8 /* Info.plist */,
 			);
 			path = Freecalc;
