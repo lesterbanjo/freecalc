@@ -516,6 +516,7 @@
 				277C11B01EE2D4D300921EA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		277C11B11EE2D4D300921EA8 /* Build configuration list for PBXNativeTarget "FreecalcTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +525,7 @@
 				277C11B31EE2D4D300921EA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		277C11B41EE2D4D300921EA8 /* Build configuration list for PBXNativeTarget "FreecalcUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +534,7 @@
 				277C11B61EE2D4D300921EA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
