@@ -8,9 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FreecalcModelListenerProtocol {
 
-    private let model: FreecalcModel = FreecalcModel()
+    private let model: FreecalcModel = FreecalcModel(freecalcModelListenerProtocol: self as! FreecalcModelListenerProtocol)
+    
+    // Protocol
+    func modelUpdated(){
+        self.updateOutput()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +27,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    
+    func updateOutput(){
+        TxtOutput.text = model.getCalculatorText()
+    }
     
     @IBAction func BtnZero_Clicked(_ sender: UIButton) {
         model.addChar(char: CalculatorCharacter.zero)
@@ -93,6 +100,7 @@ class ViewController: UIViewController {
          model.setOperation(operation: CalculatorOperations.clear)
     }
     
+    @IBOutlet var TxtOutput: UILabel!
     
     
 }

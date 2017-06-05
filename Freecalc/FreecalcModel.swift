@@ -16,6 +16,7 @@ public enum CalculatorOperations{
     case result
     case shiftSign
     case clear
+    case empty
 }
 
 public enum CalculatorCharacter{
@@ -32,13 +33,24 @@ public enum CalculatorCharacter{
     case comma
 }
 
+public protocol FreecalcModelListenerProtocol{
+    func modelUpdated()
+}
+
 class FreecalcModel {
-    var currentTotal: Double = 0
-    var latestOperation: CalculatorOperations
+    private var firstValue:  Double = 0
+    private var secondValue: Double = 0
+    private var latestOperation: CalculatorOperations
     private var currentCalculatorText: String = "0"
+    private var freecalcModelListenerProtocol: FreecalcModelListenerProtocol
     
-    init(){
+    init(freecalcModelListenerProtocol: FreecalcModelListenerProtocol){
         self.latestOperation = CalculatorOperations.add
+        self.freecalcModelListenerProtocol = freecalcModelListenerProtocol
+    }
+    
+    func getCalculatorText() -> String{
+        return currentCalculatorText
     }
     
     func setOperation(operation: CalculatorOperations){
@@ -47,8 +59,21 @@ class FreecalcModel {
                 latestOperation = .add
                 currentCalculatorText = "0"
             
-        case .result:
-            latestOperation = operation
+            case .result:
+                switch latestOperation {
+                case .add:
+                    firstValue += secondValue
+                    secondValue = 0
+                    currentCalculatorText = String(firstValue)
+                    
+                case .subtract:
+                    firstValue -= secondValue
+                    secondValue = 0
+                    
+                default:
+                    <#code#>
+            }
+//            latestOperation = operation
             
         default:
             latestOperation = operation
