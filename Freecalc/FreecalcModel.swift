@@ -33,60 +33,194 @@ public enum CalculatorCharacter{
     case comma
 }
 
-public protocol FreecalcModelListenerProtocol{
-    func modelUpdated()
+public protocol FreecalcModelListener {
+    func CurrentCalculatorText_Changed()
 }
 
 class FreecalcModel {
-    private var firstValue:  Double = 0
-    private var secondValue: Double = 0
-    private var latestOperation: CalculatorOperations
-    private var currentCalculatorText: String = "0"
-    private var freecalcModelListenerProtocol: FreecalcModelListenerProtocol
+    //private var firstValue:  Double = 0
+    //private var secondValue: Double = 0
+    private var _latestOperation: CalculatorOperations = .empty
+    private var _currentCalculatorText: String = "0"
+    private var _backgroundMemory: Double = 0
     
-    init(freecalcModelListenerProtocol: FreecalcModelListenerProtocol){
-        self.latestOperation = CalculatorOperations.add
-        self.freecalcModelListenerProtocol = freecalcModelListenerProtocol
+    var latestOperation: CalculatorOperations {
+        get {
+            return _latestOperation
+        }
+        set {
+            self._latestOperation = newValue
+        }
     }
+    
+    public var currentCalculatorText: String {
+        get {
+            return _currentCalculatorText
+        }
+        set {
+            self._currentCalculatorText = newValue
+        }
+    }
+    
+    var backgroundMemory: Double {
+        get {
+            return _backgroundMemory
+        }
+        set {
+            self._backgroundMemory = newValue
+        }
+    }
+    
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    init(){
+        self.latestOperation = CalculatorOperations.add
+        self.currentCalculatorText = "0"
+        self.backgroundMemory = 0
+    }
+    
+    
     
     func getCalculatorText() -> String{
         return currentCalculatorText
     }
     
+    private func parseValue(text: String) -> Double{
+        if let value = Double(text) {
+            return value
+        } else {
+            return 0
+        }
+    }
+    
     func setOperation(operation: CalculatorOperations){
-        switch operation{
-            case .clear:
-                latestOperation = .add
-                currentCalculatorText = "0"
-            
-            case .result:
-                switch latestOperation {
+        
+//        *case add
+//        *case subtract
+//        *case multiply
+//        *case divide
+//        *case result
+//        case shiftSign
+//        *case clear
+//        case empty
+        
+        
+        if operation == .result {
+            switch latestOperation {
                 case .add:
-                    firstValue += secondValue
-                    secondValue = 0
-                    currentCalculatorText = String(firstValue)
-                    
+                    backgroundMemory += parseValue(text: self.currentCalculatorText)
                 case .subtract:
-                    firstValue -= secondValue
-                    secondValue = 0
-                    
+                    backgroundMemory -= parseValue(text: self.currentCalculatorText)
+                case .multiply:
+                    backgroundMemory *= parseValue(text: self.currentCalculatorText)
+                case .divide:
+                    backgroundMemory /= parseValue(text: self.currentCalculatorText)
                 default:
-                    <#code#>
+                    break
             }
-//            latestOperation = operation
+            latestOperation = .empty
             
-        default:
-            latestOperation = operation
+        } else if operation == .clear {
+            // TODO: clear
+        } else if operation == .add || operation == .subtract || operation == .multiply || operation == .divide {
+            // TODO: do stuff
+            switch latestOperation{
+            case .add:
+                backgroundMemory += parseValue(text: self.currentCalculatorText)
+            case .subtract:
+                backgroundMemory -= parseValue(text: self.currentCalculatorText)
+            case .multiply:
+                backgroundMemory *= parseValue(text: self.currentCalculatorText)
+            case .divide:
+                backgroundMemory /= parseValue(text: self.currentCalculatorText)
+            default:
+                break
+            }
+            latestOperation = .empty
+            currentCalculatorText = "0"
+        } else if operation == .shiftSign {
+            // TODO: shiftSign
+        } else if operation == .empty {
             
+        } else {
+            // TODO: throw excwption
         }
         
-        self.latestOperation = operation
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+        
+//        switch operation{
+//           
+//            case .clear:
+//                latestOperation = .empty
+//                currentCalculatorText = "0"
+//                backgroundMemory = 0
+//            
+//            case .result:
+//                switch latestOperation {
+//                    case .add:
+//                        firstValue += secondValue
+//                        secondValue = 0
+//                        currentCalculatorText = String(firstValue)
+//                    
+//                    case .subtract:
+//                        firstValue -= secondValue
+//                        secondValue = 0
+//                    
+//                    default:
+//                        latestOperation = operation
+//                    
+//            }
+//
+//            
+//        default:
+//            latestOperation = operation
+//            
+//        }
+//        
+//        self.latestOperation = operation
     }
     
     func addChar(char: CalculatorCharacter){
+        if (currentCalculatorText.characters.count == 20){
+            // show error message
+            return
+        }
+        
         switch char{
             case .zero:
-                currentCalculatorText = "0"
+                currentCalculatorText += "0"
             
             case .one:
                 currentCalculatorText += "1"
@@ -116,8 +250,19 @@ class FreecalcModel {
                 currentCalculatorText += "9"
             
             case .comma:
+                if currentCalculatorText.characters.contains("."){
+                    return
+                }
                 currentCalculatorText += "."
         }
+        
+        if currentCalculatorText.characters.first == "0" &&
+            currentCalculatorText.characters.count > 1 &&
+            !currentCalculatorText.characters.contains("."){
+            currentCalculatorText = String(currentCalculatorText.characters.dropFirst(1))
+        }
+        
     }
+    
     
 }
