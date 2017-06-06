@@ -43,6 +43,7 @@ class FreecalcModel {
     private var _latestOperation: CalculatorOperations = .empty
     private var _currentCalculatorText: String = "0"
     private var _backgroundMemory: Double = 0
+    private var freecalcModelListener: FreecalcModelListener?
     
     var latestOperation: CalculatorOperations {
         get {
@@ -59,6 +60,10 @@ class FreecalcModel {
         }
         set {
             self._currentCalculatorText = newValue
+            if let listener = freecalcModelListener{
+                listener.CurrentCalculatorText_Changed()
+            }
+            
         }
     }
     
@@ -75,20 +80,8 @@ class FreecalcModel {
 
 
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    init(){
+    init(listener: FreecalcModelListener?){
+        freecalcModelListener = listener
         self.latestOperation = CalculatorOperations.add
         self.currentCalculatorText = "0"
         self.backgroundMemory = 0
@@ -110,16 +103,6 @@ class FreecalcModel {
     
     func setOperation(operation: CalculatorOperations){
         
-//        *case add
-//        *case subtract
-//        *case multiply
-//        *case divide
-//        *case result
-//        case shiftSign
-//        *case clear
-//        case empty
-        
-        
         if operation == .result {
             switch latestOperation {
                 case .add:
@@ -134,27 +117,33 @@ class FreecalcModel {
                     break
             }
             latestOperation = .empty
+            currentCalculatorText = String(backgroundMemory)
             
         } else if operation == .clear {
-            // TODO: clear
+            backgroundMemory = 0
+            self.currentCalculatorText = "0"
+            latestOperation = .empty
+            
         } else if operation == .add || operation == .subtract || operation == .multiply || operation == .divide {
             // TODO: do stuff
             switch latestOperation{
-            case .add:
-                backgroundMemory += parseValue(text: self.currentCalculatorText)
-            case .subtract:
-                backgroundMemory -= parseValue(text: self.currentCalculatorText)
-            case .multiply:
-                backgroundMemory *= parseValue(text: self.currentCalculatorText)
-            case .divide:
-                backgroundMemory /= parseValue(text: self.currentCalculatorText)
-            default:
-                break
+                case .add:
+                    backgroundMemory += parseValue(text: self.currentCalculatorText)
+                case .subtract:
+                    backgroundMemory -= parseValue(text: self.currentCalculatorText)
+                case .multiply:
+                    backgroundMemory *= parseValue(text: self.currentCalculatorText)
+                case .divide:
+                    backgroundMemory /= parseValue(text: self.currentCalculatorText)
+                default:
+                    break
             }
-            latestOperation = .empty
+            latestOperation = operation
             currentCalculatorText = "0"
+            
         } else if operation == .shiftSign {
             // TODO: shiftSign
+            
         } else if operation == .empty {
             
         } else {

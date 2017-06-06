@@ -8,13 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, FreecalcModelListener {
 
-    private let model: FreecalcModel = FreecalcModel()
-        
+    private var model: FreecalcModel = FreecalcModel(listener: nil)
+    //listener: self as! FreecalcModelListener
+    func CurrentCalculatorText_Changed(){
+        updateOutput()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        model = FreecalcModel(listener: self as FreecalcModelListener)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,88 +34,71 @@ class ViewController: UIViewController {
     
     @IBAction func BtnZero_Clicked(_ sender: UIButton) {
         model.addChar(char: CalculatorCharacter.zero)
-        self.updateOutput()
     }
     
     @IBAction func BtnOne_Clicked(_ sender: UIButton) {
         model.addChar(char: CalculatorCharacter.one)
-        self.updateOutput()
     }
     
     @IBAction func BtnTwo_Clicked(_ sender: UIButton) {
         model.addChar(char: CalculatorCharacter.two)
-        self.updateOutput()
     }
     
     @IBAction func BtnThree_Clicked(_ sender: UIButton) {
         model.addChar(char: CalculatorCharacter.three)
-        self.updateOutput()
     }
     
     @IBAction func BtnFour_Clicked(_ sender: UIButton) {
         model.addChar(char: CalculatorCharacter.four)
-        self.updateOutput()
     }
     
     @IBAction func BtnFive_Clicked(_ sender: UIButton) {
         model.addChar(char: CalculatorCharacter.five)
-        self.updateOutput()
     }
 
     @IBAction func BtnSix_Clicked(_ sender: UIButton) {
         model.addChar(char: CalculatorCharacter.six)
-        self.updateOutput()
     }
     
     @IBAction func BtnSeven_Clicked(_ sender: UIButton) {
         model.addChar(char: CalculatorCharacter.seven)
-        self.updateOutput()
     }
     
     @IBAction func BtnEight_Clicked(_ sender: UIButton) {
         model.addChar(char: CalculatorCharacter.eight)
-        self.updateOutput()
     }
     
     @IBAction func BtnNine_Clicked(_ sender: UIButton) {
         model.addChar(char: CalculatorCharacter.nine)
-        self.updateOutput()
     }
     
     @IBAction func BtnComma_Clicked(_ sender: UIButton) {
         model.addChar(char: CalculatorCharacter.comma)
-        self.updateOutput()
     }
     
     @IBAction func BtnEquals_Clicked(_ sender: UIButton) {
         model.setOperation(operation: CalculatorOperations.result)
-        self.updateOutput()
     }
     
     @IBAction func BtnPlus_Clicked(_ sender: UIButton) {
         model.setOperation(operation: CalculatorOperations.add)
-        self.updateOutput()
     }
     
     @IBAction func BtnMinus_Clicked(_ sender: Any) {
         model.setOperation(operation: CalculatorOperations.subtract)
-        self.updateOutput()
     }
     
     
     @IBAction func BtnMultiply_Clicked(_ sender: UIButton) {
         model.setOperation(operation: CalculatorOperations.multiply)
-        self.updateOutput()
     }
     
     @IBAction func BtnDivide_Clicked(_ sender: UIButton) {
         model.setOperation(operation: CalculatorOperations.divide)
-        self.updateOutput()
     }
     
     @IBAction func BtnClear_Clicked(_ sender: UIButton) {
         model.setOperation(operation: CalculatorOperations.clear)
-        self.updateOutput()
     }
     
     @IBOutlet var TxtOutput: UILabel!
