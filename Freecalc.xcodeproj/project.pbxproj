@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2744135E1EE8885200AF07A7 /* bg1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2744135D1EE8885200AF07A7 /* bg1.png */; };
+		274413621EE890F800AF07A7 /* bg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 274413611EE890F800AF07A7 /* bg2.png */; };
 		274F53A31EE3101C001FBF8F /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 274F53A21EE3101C001FBF8F /* digital-7 (mono).ttf */; };
 		274F53A41EE3101C001FBF8F /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 274F53A21EE3101C001FBF8F /* digital-7 (mono).ttf */; };
 		274F53A51EE3101C001FBF8F /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 274F53A21EE3101C001FBF8F /* digital-7 (mono).ttf */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2744135D1EE8885200AF07A7 /* bg1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg1.png; sourceTree = "<group>"; };
+		274413611EE890F800AF07A7 /* bg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg2.png; sourceTree = "<group>"; };
 		274F53A21EE3101C001FBF8F /* digital-7 (mono).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7 (mono).ttf"; sourceTree = "<group>"; };
 		274F53A61EE31EAE001FBF8F /* button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button1.png; sourceTree = "<group>"; };
 		274F53AA1EE3212D001FBF8F /* FreecalcModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreecalcModel.swift; sourceTree = "<group>"; };
@@ -97,6 +101,8 @@
 		274F53A11EE30FBA001FBF8F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				274413611EE890F800AF07A7 /* bg2.png */,
+				2744135D1EE8885200AF07A7 /* bg1.png */,
 				274F53A61EE31EAE001FBF8F /* button1.png */,
 				274F53A21EE3101C001FBF8F /* digital-7 (mono).ttf */,
 			);
@@ -282,8 +288,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2744135E1EE8885200AF07A7 /* bg1.png in Resources */,
 				274F53A31EE3101C001FBF8F /* digital-7 (mono).ttf in Resources */,
 				277C11941EE2D4D300921EA8 /* LaunchScreen.storyboard in Resources */,
+				274413621EE890F800AF07A7 /* bg2.png in Resources */,
 				277C11911EE2D4D300921EA8 /* Assets.xcassets in Resources */,
 				274F53A71EE31EAE001FBF8F /* button1.png in Resources */,
 				277C118F1EE2D4D300921EA8 /* Main.storyboard in Resources */,
